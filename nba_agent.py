@@ -59,7 +59,12 @@ def get_nba_past_scores(team_name:str, game_date:str):
     for day_games in games:
         if day_games['gameDate'].startswith(date):
             for game in day_games['games']:
-                if game['homeTeam']['teamName'].lower() == team_name.lower() or game['awayTeam']['teamName'].lower() == team_name.lower():
+                if team_name.lower() in [
+                        game['homeTeam']['teamName'].lower(),
+                        game['homeTeam']['teamCity'].lower(),
+                        game['awayTeam']['teamName'].lower(),
+                        game['awayTeam']['teamCity'].lower()
+                    ]:
                     past_scores.append({
                         'home_team': game['homeTeam']['teamName'],
                         'home_score': game['homeTeam']['score'],
@@ -82,7 +87,7 @@ def get_team_standings(team_name:str):
                     columns=json_standings['resultSets'][0]['headers'])
     team_status = None
     for index, row in df.iterrows():
-        if row['TeamName'].lower() == team_name.lower():
+        if row['TeamName'].lower() == team_name.lower() or row['TeamCity'].lower() == team_name.lower():
             team_status = {
                 'Rank': row['PlayoffRank'],
                 'Record': row['Record'],
@@ -101,12 +106,14 @@ def setup_agents() -> Agent:
 
     nba_score_agent = Agent(name="Nba Score Agent", model=model,
                     system_prompt= """You are an agent who provides NBA scores and standings for the given team.
-                    Look at the tool output and anwer the user query only from that output.
+                    Look at the tool output and anwer the user query only from that output. Be very concise and to the point.
                     If anything other than NBA scores or standings is asked, respond with 'I can only provide NBA scores and standings.'.
                     When providing live scores use following format:
                         'Team A is playing against Team B with current score X-Y.'
+                        If no games found, just say 'I didn't find any game for the team'
                     When providing response to game status use following format:
                         'Team A won/lost against Team B with score X-Y.'
+                        If no games found, just say 'I didn't find any game for the team'
                     When providing team status or standings use following format:
                         'Team A is currently ranked X in the CONFERENCE with a record of W-L.'
                     """,
@@ -125,7 +132,7 @@ if __name__ == "__main__":
     nba_agent = setup_agents()
     while True:
         try:
-            user_request = input("\nWhat do you want to know about latest NBA scores? ")
+            user_request = input("\nHey, got a question on NBA scores or standings? ")
         except EOFError:
             user_request = "exit"
         if user_request.lower() in ["exit", "quit", ""]:
