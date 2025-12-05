@@ -1,3 +1,7 @@
+# Enable Monocle Tracing
+from monocle_apptrace import setup_monocle_telemetry
+setup_monocle_telemetry(workflow_name = 'aws_strands_nba_agent', monocle_exporters_list = 'file')
+
 from datetime import datetime, timedelta
 import json
 import time
