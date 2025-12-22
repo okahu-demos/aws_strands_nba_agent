@@ -1,32 +1,21 @@
-from asyncio import sleep
-import os
+
 import pytest 
 import logging
 from nba_agent import get_scores
-from monocle_test_tools import MonocleValidator
-logging.basicConfig(level=logging.WARN)
+from monocle_test_tools import TraceAssertion
 
-agent_test_cases:list[dict] = [
-    {
-        "test_input": ["What happened in Clippers game on 22 Nov 2025"],
-        "test_output": "Clippers won against Hornets with score 131-116 on 11/22/2025.",
-        "comparer": "similarity",
-        "test_spans": [
-            {
-            "span_type": "agentic.tool.invocation",
-            "entities": [
-                {"type": "tool", "name": "get_nba_past_scores"},
-                {"type": "agent", "name": "Nba_scores_agent"}
-                ]
-            }
-        ]
-    },
-]
+@pytest.mark.asyncio
+async def test_tool_invocation(monocle_trace_asserter:TraceAssertion):
+    """Test that the correct tool is invoked and returns expected output."""
+    get_scores("What happened in Clippers game on 22 Nov 2025")
 
-# @pytest.mark.parametrize("test_case", agent_test_cases) #, ids = MonocleValidator.test_id_generator)
-@MonocleValidator().monocle_testcase(agent_test_cases)
-def test_run_workflows(test_case: dict):
-    MonocleValidator().test_workflow(get_scores, test_case)
+    monocle_trace_asserter.called_tool("get_nba_past_scores")
+
+    monocle_trace_asserter.called_agent("Nba Score Agent")
+
+    monocle_trace_asserter.called_tool("get_nba_past_scores").contains_input("Clippers").contains_output("Hornets")
+
+    monocle_trace_asserter.called_agent("Nba Score Agent").has_input("What happened in Clippers game on 22 Nov 2025").contains_output("Hornets").contains_output("131-116")
 
 if __name__ == "__main__":
     pytest.main([__file__]) 
