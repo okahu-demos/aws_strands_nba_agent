@@ -1,0 +1,207 @@
+[{
+    "name": "botocore.client.ClientCreator.create_client",
+    "context": {
+        "trace_id": "6424375f72919af680b03b744310f980",
+        "span_id": "d80754d1a4002853",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "07e59b12b88fb3c8",
+    "start_time": "2025-12-10T06:11:27.297945Z",
+    "end_time": "2025-12-10T06:11:29.519564Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0",
+        "monocle_apptrace.language": "python",
+        "span_source": "",
+        "workflow.name": "nba_agent",
+        "entity.1.type": "inference.aws_bedrock",
+        "entity.1.inference_endpoint": "https://bedrock-runtime.us-east-1.amazonaws.com",
+        "entity.1.provider_name": "bedrock-runtime.us-east-1.amazonaws.com",
+        "entity.2.name": "us.anthropic.claude-sonnet-4-20250514-v1:0",
+        "entity.2.type": "model.llm.us.anthropic.claude-sonnet-4-20250514-v1:0",
+        "span.type": "inference",
+        "scope.agentic.session": "00000000-0000-0000-187f-c5c77bcc01b4",
+        "scope.agentic.turn": "2b478045275641f74cf5fe243e821075",
+        "scope.agentic.invocation": "ec22e7e2af9511377c0cff3eb106e9fc",
+        "entity.count": 2
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2025-12-10T06:11:27.297945Z",
+            "attributes": {
+                "input": [
+                    "{\"user\": \"\\\\\"}"
+                ]
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2025-12-10T06:11:29.519564Z",
+            "attributes": {
+                "response": "{\"assistant\": \"I can only provide NBA scores and standings.\"}"
+            }
+        },
+        {
+            "name": "metadata",
+            "timestamp": "2025-12-10T06:11:29.519564Z",
+            "attributes": {
+                "completion_tokens": 12,
+                "prompt_tokens": 817,
+                "total_tokens": 829,
+                "finish_reason": "end_turn",
+                "finish_type": "success"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "nba_agent"
+        },
+        "schema_url": ""
+    }
+}
+,{
+    "name": "strands.agent.agent.Agent.__call__",
+    "context": {
+        "trace_id": "6424375f72919af680b03b744310f980",
+        "span_id": "07e59b12b88fb3c8",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "758ab6d705aeb9aa",
+    "start_time": "2025-12-10T06:11:27.256925Z",
+    "end_time": "2025-12-10T06:11:29.602110Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0",
+        "monocle_apptrace.language": "python",
+        "span_source": "nba_agent.py:164",
+        "workflow.name": "nba_agent",
+        "entity.1.type": "agent.strands",
+        "entity.1.name": "Nba Score Agent",
+        "entity.1.description": "NBA scores agent",
+        "span.type": "agentic.invocation",
+        "scope.agentic.session": "00000000-0000-0000-187f-c5c77bcc01b4",
+        "scope.agentic.turn": "2b478045275641f74cf5fe243e821075",
+        "scope.agentic.invocation": "ec22e7e2af9511377c0cff3eb106e9fc",
+        "entity.count": 1,
+        "span.subtype": "content_processing"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2025-12-10T06:11:27.256925Z",
+            "attributes": {
+                "input": "\\"
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2025-12-10T06:11:29.602110Z",
+            "attributes": {
+                "response": "I can only provide NBA scores and standings."
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "nba_agent"
+        },
+        "schema_url": ""
+    }
+}
+,{
+    "name": "strands.agent.agent.Agent.__call__",
+    "context": {
+        "trace_id": "6424375f72919af680b03b744310f980",
+        "span_id": "758ab6d705aeb9aa",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "1628668349246575",
+    "start_time": "2025-12-10T06:11:27.256925Z",
+    "end_time": "2025-12-10T06:11:29.603109Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0",
+        "monocle_apptrace.language": "python",
+        "span_source": "nba_agent.py:164",
+        "workflow.name": "nba_agent",
+        "entity.1.type": "agent.strands",
+        "span.type": "agentic.turn",
+        "scope.agentic.session": "00000000-0000-0000-187f-c5c77bcc01b4",
+        "scope.agentic.turn": "2b478045275641f74cf5fe243e821075",
+        "entity.count": 1,
+        "span.subtype": "turn"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2025-12-10T06:11:27.256925Z",
+            "attributes": {
+                "input": "\\"
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2025-12-10T06:11:29.602110Z",
+            "attributes": {
+                "response": "I can only provide NBA scores and standings."
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "nba_agent"
+        },
+        "schema_url": ""
+    }
+}
+,{
+    "name": "workflow",
+    "context": {
+        "trace_id": "6424375f72919af680b03b744310f980",
+        "span_id": "1628668349246575",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2025-12-10T06:11:27.255922Z",
+    "end_time": "2025-12-10T06:11:29.603109Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0",
+        "monocle_apptrace.language": "python",
+        "span_source": "nba_agent.py:164",
+        "scope.agentic.session": "00000000-0000-0000-187f-c5c77bcc01b4",
+        "scope.agentic.turn": "2b478045275641f74cf5fe243e821075",
+        "workflow.name": "nba_agent",
+        "span.type": "workflow",
+        "entity.1.name": "nba_agent",
+        "entity.1.type": "workflow.generic",
+        "entity.2.type": "app_hosting.generic",
+        "entity.2.name": "generic"
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "nba_agent"
+        },
+        "schema_url": ""
+    }
+}
+]

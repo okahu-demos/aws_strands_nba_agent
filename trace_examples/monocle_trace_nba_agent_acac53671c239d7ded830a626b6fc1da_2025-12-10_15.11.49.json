@@ -1,0 +1,330 @@
+[{
+    "name": "botocore.client.ClientCreator.create_client",
+    "context": {
+        "trace_id": "acac53671c239d7ded830a626b6fc1da",
+        "span_id": "9e0450c6745980f8",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "7af69beaac3b4df4",
+    "start_time": "2025-12-10T06:11:47.024222Z",
+    "end_time": "2025-12-10T06:11:49.895575Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0",
+        "monocle_apptrace.language": "python",
+        "span_source": "",
+        "workflow.name": "nba_agent",
+        "entity.1.type": "inference.aws_bedrock",
+        "entity.1.inference_endpoint": "https://bedrock-runtime.us-east-1.amazonaws.com",
+        "entity.1.provider_name": "bedrock-runtime.us-east-1.amazonaws.com",
+        "entity.2.name": "us.anthropic.claude-sonnet-4-20250514-v1:0",
+        "entity.2.type": "model.llm.us.anthropic.claude-sonnet-4-20250514-v1:0",
+        "span.type": "inference",
+        "entity.3.name": "get_nba_past_scores",
+        "entity.3.type": "tool.function",
+        "scope.agentic.session": "00000000-0000-0000-187f-c5d52c570cc4",
+        "scope.agentic.turn": "b33bef8243546e6cab3946731a8c6e9b",
+        "scope.agentic.invocation": "a054b5c6b4790a65637b2e7e2e788d30",
+        "entity.count": 3
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2025-12-10T06:11:47.025235Z",
+            "attributes": {
+                "input": [
+                    "{\"user\": \"What was the score of heats game y'day?\"}"
+                ]
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2025-12-10T06:11:49.895575Z",
+            "attributes": {
+                "response": "{\"assistant\": \"{'toolUseId': 'tooluse_0QhPFbgjQiWXn4bgwEH5Nw', 'name': 'get_nba_past_scores', 'input': {'name': 'heat', 'game_date': 'yesterday'}, 'type': 'tool_use'}\"}"
+            }
+        },
+        {
+            "name": "metadata",
+            "timestamp": "2025-12-10T06:11:49.895575Z",
+            "attributes": {
+                "completion_tokens": 77,
+                "prompt_tokens": 828,
+                "total_tokens": 905,
+                "finish_reason": "tool_use",
+                "finish_type": "tool_call"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "nba_agent"
+        },
+        "schema_url": ""
+    }
+}
+,{
+    "name": "strands.tools.executors.concurrent.ConcurrentToolExecutor._execute",
+    "context": {
+        "trace_id": "acac53671c239d7ded830a626b6fc1da",
+        "span_id": "9a9e52d87fe8a7f6",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "7af69beaac3b4df4",
+    "start_time": "2025-12-10T06:11:49.952072Z",
+    "end_time": "2025-12-10T06:11:57.455277Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0",
+        "monocle_apptrace.language": "python",
+        "span_source": "C:\\Work\\repos\\aws_strands_nba_agent\\.venv\\Lib\\site-packages\\strands\\event_loop\\event_loop.py:471",
+        "workflow.name": "nba_agent",
+        "entity.1.type": "tool.strands",
+        "entity.1.name": "get_nba_past_scores",
+        "entity.2.name": "Nba Score Agent",
+        "entity.2.type": "agent.stands",
+        "span.type": "agentic.tool.invocation",
+        "scope.agentic.session": "00000000-0000-0000-187f-c5d52c570cc4",
+        "scope.agentic.turn": "b33bef8243546e6cab3946731a8c6e9b",
+        "scope.agentic.invocation": "a054b5c6b4790a65637b2e7e2e788d30",
+        "entity.count": 2,
+        "span.subtype": "content_generation"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2025-12-10T06:11:49.953079Z",
+            "attributes": {
+                "input": "{'name': 'heat', 'game_date': 'yesterday'}"
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2025-12-10T06:11:57.455277Z",
+            "attributes": {
+                "response": "[{'home_team': 'Magic', 'home_score': 117, 'away_team': 'Heat', 'away_score': 108}]"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "nba_agent"
+        },
+        "schema_url": ""
+    }
+}
+,{
+    "name": "botocore.client.ClientCreator.create_client",
+    "context": {
+        "trace_id": "acac53671c239d7ded830a626b6fc1da",
+        "span_id": "3a92f1a0fdc1a0e8",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "7af69beaac3b4df4",
+    "start_time": "2025-12-10T06:11:57.529041Z",
+    "end_time": "2025-12-10T06:11:58.803700Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0",
+        "monocle_apptrace.language": "python",
+        "span_source": "",
+        "workflow.name": "nba_agent",
+        "entity.1.type": "inference.aws_bedrock",
+        "entity.1.inference_endpoint": "https://bedrock-runtime.us-east-1.amazonaws.com",
+        "entity.1.provider_name": "bedrock-runtime.us-east-1.amazonaws.com",
+        "entity.2.name": "us.anthropic.claude-sonnet-4-20250514-v1:0",
+        "entity.2.type": "model.llm.us.anthropic.claude-sonnet-4-20250514-v1:0",
+        "span.type": "inference",
+        "scope.agentic.session": "00000000-0000-0000-187f-c5d52c570cc4",
+        "scope.agentic.turn": "b33bef8243546e6cab3946731a8c6e9b",
+        "scope.agentic.invocation": "a054b5c6b4790a65637b2e7e2e788d30",
+        "entity.count": 2
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2025-12-10T06:11:57.530026Z",
+            "attributes": {
+                "input": [
+                    "{\"user\": \"What was the score of heats game y'day?\"}"
+                ]
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2025-12-10T06:11:58.803700Z",
+            "attributes": {
+                "response": "{\"assistant\": \"Heat lost against Magic with score 108-117.\"}"
+            }
+        },
+        {
+            "name": "metadata",
+            "timestamp": "2025-12-10T06:11:58.803700Z",
+            "attributes": {
+                "completion_tokens": 14,
+                "prompt_tokens": 956,
+                "total_tokens": 970,
+                "finish_reason": "end_turn",
+                "finish_type": "success"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "nba_agent"
+        },
+        "schema_url": ""
+    }
+}
+,{
+    "name": "strands.agent.agent.Agent.__call__",
+    "context": {
+        "trace_id": "acac53671c239d7ded830a626b6fc1da",
+        "span_id": "7af69beaac3b4df4",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "e3684dbfa13ee959",
+    "start_time": "2025-12-10T06:11:46.963597Z",
+    "end_time": "2025-12-10T06:11:58.870648Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0",
+        "monocle_apptrace.language": "python",
+        "span_source": "nba_agent.py:164",
+        "workflow.name": "nba_agent",
+        "entity.1.type": "agent.strands",
+        "entity.1.name": "Nba Score Agent",
+        "entity.1.description": "NBA scores agent",
+        "span.type": "agentic.invocation",
+        "scope.agentic.session": "00000000-0000-0000-187f-c5d52c570cc4",
+        "scope.agentic.turn": "b33bef8243546e6cab3946731a8c6e9b",
+        "scope.agentic.invocation": "a054b5c6b4790a65637b2e7e2e788d30",
+        "entity.count": 1,
+        "span.subtype": "content_processing"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2025-12-10T06:11:46.963597Z",
+            "attributes": {
+                "input": "What was the score of heats game y'day?"
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2025-12-10T06:11:58.870648Z",
+            "attributes": {
+                "response": "Heat lost against Magic with score 108-117."
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "nba_agent"
+        },
+        "schema_url": ""
+    }
+}
+,{
+    "name": "strands.agent.agent.Agent.__call__",
+    "context": {
+        "trace_id": "acac53671c239d7ded830a626b6fc1da",
+        "span_id": "e3684dbfa13ee959",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "0c93135bb179ff75",
+    "start_time": "2025-12-10T06:11:46.962590Z",
+    "end_time": "2025-12-10T06:11:58.870648Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0",
+        "monocle_apptrace.language": "python",
+        "span_source": "nba_agent.py:164",
+        "workflow.name": "nba_agent",
+        "entity.1.type": "agent.strands",
+        "span.type": "agentic.turn",
+        "scope.agentic.session": "00000000-0000-0000-187f-c5d52c570cc4",
+        "scope.agentic.turn": "b33bef8243546e6cab3946731a8c6e9b",
+        "entity.count": 1,
+        "span.subtype": "turn"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2025-12-10T06:11:46.962590Z",
+            "attributes": {
+                "input": "What was the score of heats game y'day?"
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2025-12-10T06:11:58.870648Z",
+            "attributes": {
+                "response": "Heat lost against Magic with score 108-117."
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "nba_agent"
+        },
+        "schema_url": ""
+    }
+}
+,{
+    "name": "workflow",
+    "context": {
+        "trace_id": "acac53671c239d7ded830a626b6fc1da",
+        "span_id": "0c93135bb179ff75",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2025-12-10T06:11:46.962590Z",
+    "end_time": "2025-12-10T06:11:58.871605Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0",
+        "monocle_apptrace.language": "python",
+        "span_source": "nba_agent.py:164",
+        "scope.agentic.session": "00000000-0000-0000-187f-c5d52c570cc4",
+        "scope.agentic.turn": "b33bef8243546e6cab3946731a8c6e9b",
+        "workflow.name": "nba_agent",
+        "span.type": "workflow",
+        "entity.1.name": "nba_agent",
+        "entity.1.type": "workflow.generic",
+        "entity.2.type": "app_hosting.generic",
+        "entity.2.name": "generic"
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "nba_agent"
+        },
+        "schema_url": ""
+    }
+}
+]
